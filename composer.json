@@ -1,17 +1,17 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "creativecrafts/laravel-paginate-collection",
+    "description": "A handy package to paginate laravel collection",
     "keywords": [
-        ":vendor_name",
+        "CreativeCrafts",
         "laravel",
-        ":package_slug"
+        "laravel-paginate-collection"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/creativecrafts/laravel-paginate-collection",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Godspower",
+            "email": "oduose4eva@gmail.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "CreativeCrafts\\Paginate\\": "src",
+            "CreativeCrafts\\Paginate\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "CreativeCrafts\\Paginate\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -61,10 +61,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "CreativeCrafts\\Paginate\\PaginateServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "Paginate": "CreativeCrafts\\Paginate\\Facades\\Paginate"
             }
         }
     },
