@@ -53,6 +53,53 @@ $collection = collect([
 ]);
 
 $paginatedCollection = Paginate::collection($collection, 1);
+// output:
+// [
+//    "current_page" => 1
+//    "data" => [
+//       0 => [
+//          "name" => "Jack"
+//          "age" => 40
+//       ]
+//    ],
+//    "first_page_url" => "http://localhost:8000/?page=1"
+//    "from" => 1
+//    "last_page" => 3
+//    "last_page_url" => "http://localhost:8000/?page=3"
+//    "next_page_url" => "http://localhost:8000/?page=2"
+//    "path" => "http://localhost:8000"
+//    "per_page" => 1
+//    "prev_page_url" => null
+//    "to" => 1
+//    "total" => 3
+//    links => [
+//       0 => [
+//          "url" => "null",
+//          "label" => "&laquo; Previous",
+//          "active" => false
+//       ],
+//       1 => [
+//          "url" => "http://localhost:8000/?page=1",
+//          "label" => "1",
+//          "active" => true
+//       ],
+//       2 => [
+//          "url" => "http://localhost:8000/?page=2",
+//          "label" => "2",
+//          "active" => false
+//       ],
+//       3 => [
+//          "url" => "http://localhost:8000/?page=3",
+//          "label" => "3",
+//          "active" => false
+//       ],
+//       4 => [
+//          "url" => "http://localhost:8000/?page=2",
+//          "label" => "Next &raquo;",
+//          "active" => false
+//       ]
+//    ]
+//]
 ```
 
 ## Testing
