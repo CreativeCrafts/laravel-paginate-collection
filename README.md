@@ -18,7 +18,7 @@ composer require creativecrafts/laravel-paginate-collection
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-paginate-collection-config"
+php artisan vendor:publish --tag="paginate-collection-config"
 ```
 
 This is the contents of the published config file:
