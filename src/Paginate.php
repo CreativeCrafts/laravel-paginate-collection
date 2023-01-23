@@ -20,15 +20,15 @@ class Paginate
     public static function collection(Collection $collection, ?int $itemsPerPage): LengthAwarePaginator
     {
         if (is_null($itemsPerPage)) {
-            $itemsPerPage = self::itemsPerPage();
+            $itemsPerPage = self::defaultItemsPerPage();
         }
 
-        $pageNumber = Paginator::resolveCurrentPage(self::pageName());
+        $pageNumber = Paginator::resolveCurrentPage(self::defaultPageName());
         $totalPageNumber = $collection->count();
 
         return self::paginator($collection->forPage($pageNumber, $itemsPerPage), $totalPageNumber, $itemsPerPage, $pageNumber, [
             'path' => Paginator::resolveCurrentPath(),
-            'pageName' => self::pageName(),
+            'pageName' => self::defaultPageName(),
         ]);
     }
 
@@ -66,7 +66,7 @@ class Paginate
       /**
        * @return int
        */
-      protected static function itemsPerPage(): int
+      public static function defaultItemsPerPage(): int
       {
           /** @var int config('paginate-collection.items_per_page') */
           return config('paginate-collection.items_per_page');
@@ -75,7 +75,7 @@ class Paginate
       /**
        * @return string
        */
-      protected static function pageName(): string
+      public static function defaultPageName(): string
       {
           /** @var string config('paginate-collection.page_name') */
           return config('paginate-collection.page_name');

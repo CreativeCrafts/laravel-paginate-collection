@@ -100,6 +100,11 @@ $paginatedCollection = Paginate::collection($collection, 1);
 //       ]
 //    ]
 //]
+You can get the default items per page from the config file
+$paginatedCollection = Paginate::collection($collection, Paginate::defaultItemsPerPage());
+
+You can also get the default page name that will be used in the query string from the config file
+$pageName = Paginate::defaultPageName();
 ```
 
 ## Testing
