@@ -9,6 +9,7 @@ return [
 
     /**
      * This is the default page name that will be used in the query string.
+     * default: page
      */
     'page_name' => 'page',
 ];
