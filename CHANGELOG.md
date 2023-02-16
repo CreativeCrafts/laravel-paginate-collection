@@ -17,3 +17,7 @@ All notable changes to `laravel-paginate-collection` will be documented in this 
 - Added feature to retrieve the default page name from the config file.
 - Updated README.md to show how to use the default page name with examples.
 - Updated pest tests to test the default page size and page name.
+
+## 0.2.2 - 2023-01-23
+
+- Support laravel 10
