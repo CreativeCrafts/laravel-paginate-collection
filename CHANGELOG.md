@@ -20,4 +20,8 @@ All notable changes to `laravel-paginate-collection` will be documented in this 
 
 ## 0.2.3 - 2023-01-23
 
+- Updated dependencies.
+
+## 0.2.4 - 2023-02-21
+
 - Support laravel 10
