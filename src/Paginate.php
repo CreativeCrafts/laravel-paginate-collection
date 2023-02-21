@@ -12,7 +12,6 @@ class Paginate
 {
     /**
      * @param  Collection<string, mixed>  $collection
-     * @param  int|null  $itemsPerPage
      * @return LengthAwarePaginator<Collection<string, mixed>>
      *
      * @throws BindingResolutionException
@@ -36,10 +35,6 @@ class Paginate
        * Create a new length-aware paginator instance.
        *
        * @param  Collection<string, mixed>  $items
-       * @param  int  $total
-       * @param  int  $perPage
-       * @param  int  $currentPage
-       * @param  array  $options
        * @return LengthAwarePaginator<Collection<string, mixed>>
        *
        * @throws BindingResolutionException
@@ -63,18 +58,12 @@ class Paginate
           return $pagination;
       }
 
-      /**
-       * @return int
-       */
       public static function defaultItemsPerPage(): int
       {
           /** @var int config('paginate-collection.items_per_page') */
           return config('paginate-collection.items_per_page');
       }
 
-      /**
-       * @return string
-       */
       public static function defaultPageName(): string
       {
           /** @var string config('paginate-collection.page_name') */
