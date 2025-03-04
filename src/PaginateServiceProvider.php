@@ -17,7 +17,7 @@ class PaginateServiceProvider extends PackageServiceProvider
     public function packageRegistered(): void
     {
         $this->app->bind('paginate', function () {
-            return new Paginate();
+            return new Paginate;
         });
     }
 }

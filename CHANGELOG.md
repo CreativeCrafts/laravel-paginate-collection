@@ -31,3 +31,8 @@ All notable changes to `laravel-paginate-collection` will be documented in this 
 - Added support for Laravel 11
 - Removed support for Laravel 9
 - Removed support for php8.1
+
+## 1.0.1 - 2025-03-03
+
+- Added support for Laravel 12
+- Added proper documentation for the package
