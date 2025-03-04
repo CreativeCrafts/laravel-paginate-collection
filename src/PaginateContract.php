@@ -2,14 +2,11 @@
 
 namespace CreativeCrafts\Paginate;
 
-use Illuminate\Container\Container;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Config;
 
-class Paginate implements PaginateContract
+interface PaginateContract
 {
     /**
      * Paginates a collection of items.
@@ -23,20 +20,7 @@ class Paginate implements PaginateContract
      *
      * @throws BindingResolutionException If the paginator cannot be resolved from the container
      */
-    public static function collection(Collection $collection, ?int $itemsPerPage): LengthAwarePaginator
-    {
-        if (is_null($itemsPerPage)) {
-            $itemsPerPage = self::defaultItemsPerPage();
-        }
-
-        $pageNumber = Paginator::resolveCurrentPage(self::defaultPageName());
-        $totalPageNumber = $collection->count();
-
-        return self::paginator($collection->forPage($pageNumber, $itemsPerPage), $totalPageNumber, $itemsPerPage, $pageNumber, [
-            'path' => Paginator::resolveCurrentPath(),
-            'pageName' => self::defaultPageName(),
-        ]);
-    }
+    public static function collection(Collection $collection, ?int $itemsPerPage): LengthAwarePaginator;
 
     /**
      * Create a new length-aware paginator instance.
@@ -59,18 +43,7 @@ class Paginate implements PaginateContract
         int $perPage,
         int $currentPage,
         array $options
-    ): LengthAwarePaginator {
-        /** @var LengthAwarePaginator<Collection<string, mixed>> $pagination */
-        $pagination = Container::getInstance()->makeWith(LengthAwarePaginator::class, compact(
-            'items',
-            'total',
-            'perPage',
-            'currentPage',
-            'options'
-        ));
-
-        return $pagination;
-    }
+    ): LengthAwarePaginator;
 
     /**
      * Get the default number of items to display per page.
@@ -80,10 +53,7 @@ class Paginate implements PaginateContract
      *
      * @return int The default number of items to display per page
      */
-    public static function defaultItemsPerPage(): int
-    {
-        return Config::integer(key: 'paginate-collection.items_per_page', default: 10);
-    }
+    public static function defaultItemsPerPage(): int;
 
     /**
      * Get the default page name used for pagination.
@@ -93,8 +63,5 @@ class Paginate implements PaginateContract
      *
      * @return string The default page name used in pagination URLs
      */
-    public static function defaultPageName(): string
-    {
-        return Config::string(key: 'paginate-collection.page_name', default: 'page');
-    }
+    public static function defaultPageName(): string;
 }
